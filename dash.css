@@ -17,10 +17,12 @@ body {
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
     width: 240px;
     z-index: 600;
-    background-color: #CEDDE4 !important;
+    /* background-color: #CEDDE4 !important; */
+    background-color: black !important;
   }
   .navbar{
-    background-color: #CEDDE4 !important;
+    /* background-color: #CEDDE4 !important; */
+    background-color: black;
   }
   
   @media (max-width: 991.98px) {
@@ -44,7 +46,8 @@ body {
   .text-center{
     font-family: 'Luckiest Guy', cursive;
     font-weight: bold;
-    color: black  !important;
+    /* color: black  !important; */
+    color:#0e6084 ;
     font-size: 1.8rem;
     text-shadow: #0e6084 2px 2px !important;
     animation: pulse !important;
@@ -65,11 +68,18 @@ body {
 
 }
 .card{
-    height: 200px;
-    border-radius: 2rem;
+    height: 150px;
+    border-radius: 1rem;
     background-image:linear-gradient(to right, black, #325566);
+   
     
     /* background-color: black; */
+}
+.card-body{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px; */
+  border-radius: 1rem;
+  
 }
 .card h5{
     color: white;
@@ -120,3 +130,22 @@ h1{
 /* table{
   margin-top: 50px !important;
 } */
+
+/* table{
+  margin-top: 50px !important;
+} */
+
+#data-table_wrapper{
+  margin-top: 40px;
+}
+.Add{
+  color:white ;
+  background-color: #236d94;
+  border: none;
+  border-radius:5px;
+  padding: 5px;
+  text-align: center;
+}
+.back{
+  color: aquamarine !important;
+}

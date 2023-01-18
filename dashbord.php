@@ -1,3 +1,12 @@
+<?php
+include "Operation.php";
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +38,13 @@
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
        
-        <a href="#" class="fw-bold fs-5 text-decoration-none text-dark py-2 ripple"
+        <a href="#" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Home</span></a
         >
-        <a href="#" class="fw-bold fs-5 text-decoration-none text-dark py-2 ripple"
+        <a href="#" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Statistique</span></a
         >
-        <a href="#" class="fw-bold fs-5 text-decoration-none text-dark py-2 ripple"
+        <a href="#data-table" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
           ><i class="fas fa-lock fa-fw me-3"></i><span>Music lyrics</span></a
         >
        
@@ -97,7 +106,7 @@
 
 
 
-<div class="card shadow-lg" style="width: 18rem;">
+<div class="card " style="width: 18rem;">
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -109,7 +118,7 @@
   </div>
 </div>
 
-<div class="card shadow-lg" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -121,7 +130,7 @@
   </div>
 </div>
 
-<div class="card shadow-lg" style="width: 18rem;">
+<div class="card" style="width: 18rem;">
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -136,43 +145,53 @@
 <main class="tab">
   <!-- Modal -->
   <div class="ms-auto">
-				<a href="#modal-task" data-bs-toggle="modal" class="btn btn-dark btn-rounded px-4 rounded-pill"  onclick="addTask()"><i class="bi bi-plus-lg text-white"></i> Add new Lyrics</a>
+				<a href="#modal-task" data-bs-toggle="modal" class="btn btn-dark btn-rounded px-4 rounded-pill"><i class="bi bi-plus-lg text-white"></i> Add new Lyrics</a>
 		</div>
   <div class="modal fade" id="modal-task">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="scripts.php" method="POST" id="form-task">
+				<form action="" method="POST" id="form-task">
 					<div class="modal-header">
 						<h5 class="modal-title fw-bold">Add Lyrics</h5>
 						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
-							<input type="hidden" id="task-id" name="task-id">
-							<div class="mb-3">
+
+
+							<input type="hidden" id="task-id" name="task-id[]">
+              <div class="row">
+							<div class="mb-3 col">
 								<label class="form-label">Song title</label>
-								<input type="text" class="form-control" id="task-title" name="title" />
+								<input type="text" class="form-control"  name="Title[]" />
 							</div>
-              <div class="mb-3">
+              <div class="mb-3 col">
 								<label class="form-label">Singer name</label>
-								<input type="text" class="form-control" id="task-title" name="title" />
+								<input type="text" class="form-control" id="task-title" name="Name[]"/>
 							</div>
+              <div class="mb-3 col">
+								<label class="form-label">Creation date</label>
+								<input type="date" class="form-control" id="task-date" name="date[]"/>
+							</div>
+              </div>
 			
-							<div class="mb-3">
-								<label class="form-label">Date of creation</label>
-								<input type="datetime-local" class="form-control" id="task-date" name="date"/>
-							</div>
+						
               <div class="mb-0">
 								<label class="form-label">Lyrics</label>
-								<textarea class="form-control" rows="5" id="task-description" name="description"></textarea>
+								<textarea class="form-control" rows="5" id="task-description" name="Lyrics[]"></textarea>
 							</div>
 						
 						
 					</div>
+          <div class="another-modal-body">
+
+          </div>
 					<div class="modal-footer">
+          <button type="button" class="Add">Add more</button>
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
 	
-						<button type="submit" name="save" class="btn btn-primary task-action-btn" id="task-save-btn">Save</button>
+						<button type="submit" name="Add_lyrics" class="btn btn-dark task-action-btn" id="task-save-btn">Save</button>
+           
 					</div>
 				</form>
 			</div>
@@ -219,26 +238,47 @@
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
-                    <th>Album</th>
-                    <th>Time</th>
+                  
+                    <th>Date</th>
                     <th>Lyrics</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                    <tr class="odd">
-                        <td class="sorting_1">ff</td>
-                        <td class="">gg</td>
-                        <td class=""></td>
-                        <td class=""></td>
-                        <td class=""></td>
+                    
+                      <?php
+                      foreach($all_data as $valu){
+
+                        echo '<tr class="odd">
+                        
+                        <td class="sorting_1">'. $valu["Title"] .'</td>
+                        <td class="">'. $valu["Name"] .'</td>
+                 
+                        <td class="">'. $valu["Creation-date"] .'</td>
+                        <td class="">'. $valu["Lyrics"] .'</td>
                         <td>
                             <div class="d-flex fs-3">
                                 <a href="#modal-city" data-bs-toggle="modal" class="btn btn-warning me-3" onclick="editSong()"><i class="bi bi-pencil-square users-icon"></i></a>
                                 <a href="" class="btn btn-danger text-dark"><i class="bi bi-trash3-fill users-icon"></i></a>
                             </div>
                         </td>
-                    </tr>
+                        </tr>
+                        
+                        
+                        ';
+
+
+
+
+                      }
+                      
+                      
+                      
+                      
+                      ?>
+
+                        
+                   
             </tbody>
         </table>
 </main>
@@ -256,5 +296,6 @@
     });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+<script src="script.js"></script>
 </body>
 </html>
