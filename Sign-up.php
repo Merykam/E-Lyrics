@@ -35,27 +35,28 @@
         /* box-shadow:  #69B1DD 0px 5px 15px; */
         /* box-shadow: 2px 2px 8px #69B1DD  !important; */
         width: 450px;
-        height: 350px;
+        height: 530px;
        
 
      
           
     }  
     .btn{
-        background-color: white !important;
+      background-color: white !important;
         color: black;
-        font-size: 17px;
         font-weight: bold;
         border-radius: 1rem;
         padding: 10px !important;
-        /* box-shadow: black  2px 2px !important ; */
+    }
+    .btn:hover{
+      background-color: #1C82AD !important;
     }
     .form-label{
-      color: white !important;
+        color: white !important;
         font-weight: bold;
     }
     .text-center{
-      font-family: 'Luckiest Guy', cursive;
+        font-family: 'Luckiest Guy', cursive;
         font-weight: bold;
         color: white !important;
         font-size: 2rem;
@@ -72,34 +73,45 @@
 
   </style>
 
-  <div class="container  py-5 d-flex justify-content-center align-items-center ">
+  <div class="container  py-5 d-flex justify-content-center  ">
   
-    <div class="gx-lg-5 flex-column mb-5 ">
+    <div class="gx-lg-5 flex-column mb-5">
    
    
 
-      <div class=" mb-lg-0 ">
+      <div class=" mb-lg-0">
       
 
         <div class="card d-flex justify-content-center   ">
           <div class=" px-4 py-5 px-md-5 ">
-            <form>
+            <form method="post">
             <!-- <h1 class="text-center"> <span>E</span>-ly<span>r</span>ics <span>M</span>us<span>i</span>c</h1> -->
-                <h4 class="fw-bold mt-4 text-center">Sign in</h4>
+                <h4 class="fw-bold mt-4 text-center">Sign up</h4>
 
 
               <!-- Email input -->
-              <div class="form-outline mb-4 mt-5">
-                <!-- <label class="form-label" for="form3Example3">Email address</label> -->
-                <input placeholder="Enter your name" type="email" id="form3Example3" class="form-control" />
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Name</label>
+                <input name="Name" placeholder="Enter your name" type="text" id="form3Example3" class="form-control"/>
                 
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <!-- <label class="form-label" for="form3Example4">Password</label> -->
-                <input placeholder="Enter your Password"  type="password" id="form3Example4" class="form-control" />
+                <label class="form-label" for="form3Example4">Email</label>
+                <input name="Email" placeholder="Enter your email"  type="email" id="form3Example4" class="form-control" />
                
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Password</label>
+                <input name="password" placeholder="Enter your password"  type="password" id="form3Example3" class="form-control" />
+                
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Comfirm password</label>
+                <input name="Cpassword" placeholder="Comfirm your password"  type="password" id="form3Example3" class="form-control" />
+                
               </div>
 
 
@@ -109,7 +121,7 @@
 
              
               <button type="submit" class="btn btn-block mb-4 ">
-                Sign in
+                Sign up
               </button>
               </div>
 

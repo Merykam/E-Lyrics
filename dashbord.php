@@ -243,39 +243,58 @@ include "Operation.php";
                     <th>Lyrics</th>
                     <th>Actions</th>
                 </tr>
+                
             </thead>
             <tbody>
-                    
+                    <!-- <form action="Operation.php" method="post"> -->
                       <?php
                       foreach($all_data as $valu){
 
                         echo '<tr class="odd">
+                        <form action="Operation.php" method="post">
                         
-                        <td class="sorting_1">'. $valu["Title"] .'</td>
-                        <td class="">'. $valu["Name"] .'</td>
+                        <td class="sorting_1">
+                        <input name="id" type="hidden" value="' . $valu["id"] . '">
+                        <input class="border-0" type="text" name="Title_update" value="' . $valu["Title"]  . '">
+                        </td>
+                        <td class="">
+                        <input class="border-0" type="text" name="Name_update" value="' . $valu["Name"]. '">
+                        
+                        </td>
                  
-                        <td class="">'. $valu["Creation-date"] .'</td>
-                        <td class="">'. $valu["Lyrics"] .'</td>
+                        <td class="">
+                        <input class="border-0" type="text" name="date_update" value="' . $valu["Creation-date"] . '">
+                        
+                        
+                        </td>
+                        <td class="">
+                        <input class="border-0" type="text" name="lyrics_update" value="' . $valu["Lyrics"]. '">
+                        </td>
                         <td>
                             <div class="d-flex fs-3">
-                                <a href="#modal-city" data-bs-toggle="modal" class="btn btn-warning me-3" onclick="editSong()"><i class="bi bi-pencil-square users-icon"></i></a>
-                                <a href="" class="btn btn-danger text-dark"><i class="bi bi-trash3-fill users-icon"></i></a>
+                                <a href="?id='. $valu['id'] . '" class="btn btn-warning me-3"><i class="bi bi-trash3-fill users-icon"></i></a>
+                                <button name="update" type="submit" class="btn btn-danger text-dark"><i class="bi bi-pencil-square users-icon"></i></button>
+                                
+                                
                             </div>
                         </td>
+                        
+                        </form>
                         </tr>
-                        
-                        
                         ';
 
 
 
 
                       }
+                 
                       
                       
                       
                       
                       ?>
+                    
+                   
 
                         
                    

@@ -25,10 +25,25 @@ $checkConn -> conn();
 
 class Crud extends Connection{
 
+
+    private $id;
     private $Title;
     private $Creationdate;
     private $Lyrics;
     private $Name;
+
+
+    public function setTid($id){
+
+        $this->id=$id;
+
+    }
+
+    public function GetTid(){
+         $this->id;
+
+
+    }
 
     public function setTitle($Title){
 
@@ -88,18 +103,7 @@ class Crud extends Connection{
 
             $req->execute([$this->Title[$i],$this->Creationdate[$i],$this->Lyrics[$i],$this->Name[$i]]);
     
-    
-            // $req2= $this ->conn()->prepare("INSERT INTO `artiste` (`Name`) VALUES (?)" );
-    
-          
-            // $req2->execute([$this->Name[$i]]);
-          
-
-        }
-
-    
-
-       
+        }   
     }
 
     public function ShowAllData()
@@ -110,9 +114,23 @@ class Crud extends Connection{
     }
 
 
+    
+    public function update()
+    {
+        $stm = $this->conn()->prepare("UPDATE `song-info` SET `Title`=?,`Creation-date`=?, `Lyrics`=?, `Name`=? WHERE id=?");
+
+        $stm->execute([$this->Title,$this->Creationdate,$this->Lyrics,$this->Name,$this->id]);
+        
+    }
 
 
 
+    public function delete()
+    {
+        $stmt = $this->conn()->prepare("DELETE FROM `song-info` WHERE id=?");
+        $stmt->execute([$this->id]);
+      
+    }
 
 
 
