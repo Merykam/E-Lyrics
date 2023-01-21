@@ -1,3 +1,12 @@
+<?php
+include "BackEndRegister.php";
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,7 +129,7 @@
               <div class=" d-flex justify-content-center">
 
              
-              <button type="submit" class="btn btn-block mb-4 ">
+              <button name="submit" type="submit" class="btn btn-block mb-4 ">
                 Sign up
               </button>
               </div>

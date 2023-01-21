@@ -1,3 +1,9 @@
+<?php
+include "gg.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +89,7 @@
 
         <div class="card d-flex justify-content-center   ">
           <div class=" px-4 py-5 px-md-5 ">
-            <form>
+            <form method="post">
             <!-- <h1 class="text-center"> <span>E</span>-ly<span>r</span>ics <span>M</span>us<span>i</span>c</h1> -->
                 <h4 class="fw-bold mt-4 text-center">Sign in</h4>
 
@@ -91,14 +97,14 @@
               <!-- Email input -->
               <div class="form-outline mb-4 mt-5">
                 <!-- <label class="form-label" for="form3Example3">Email address</label> -->
-                <input placeholder="Enter your name" type="email" id="form3Example3" class="form-control" />
+                <input name="Email" placeholder="Enter your name" type="email" id="form3Example3" class="form-control" />
                 
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <!-- <label class="form-label" for="form3Example4">Password</label> -->
-                <input placeholder="Enter your Password"  type="password" id="form3Example4" class="form-control" />
+                <input name="password" placeholder="Enter your Password"  type="password" id="form3Example4" class="form-control" />
                
               </div>
 
@@ -108,13 +114,13 @@
               <div class=" d-flex justify-content-center">
 
              
-              <button type="submit" class="btn btn-block mb-4 ">
+              <button name="login" type="submit" class="btn btn-block mb-4 ">
                 Sign in
               </button>
               </div>
 
                 </button>
-              </div> -->
+              </div> 
             </form>
           </div>
         </div>

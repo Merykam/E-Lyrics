@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "Operation.php";
 ?>
 
@@ -78,7 +79,7 @@ include "Operation.php";
       <i class="bi bi-person-fill mydimensions"></i>
       <div class="dropdown">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-       Mariem kamaych
+       <?php echo $_SESSION["name"]?>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item fw-bold " href="#">Log out</a></li>
