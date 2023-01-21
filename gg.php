@@ -16,7 +16,7 @@ if(isset($_POST["login"])){
 
 
     $NewAdmin = new LogIn($Email,$password);
-    $NewAdmin->EmptyInputs();
+    $NewAdmin->Login();
    
     $NewAdmin->getAdmin();
     

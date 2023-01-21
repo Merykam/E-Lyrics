@@ -79,7 +79,11 @@ include "Operation.php";
       <i class="bi bi-person-fill mydimensions"></i>
       <div class="dropdown">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-       <?php echo $_SESSION["name"]?>
+       <?php if(isset($_SESSION['adminName'])){
+        echo $_SESSION["adminName"];
+
+       }
+        ?> 
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item fw-bold " href="#">Log out</a></li>

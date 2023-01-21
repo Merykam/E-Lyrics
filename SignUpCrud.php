@@ -14,7 +14,7 @@ class Connection{
     
             } catch(PDOException $e) {
               echo "Connection failed: " . $e->getMessage();
-            }
+            };
     }
     
     
@@ -186,8 +186,8 @@ class Connection{
     
             }
             public function getAdmin(){
-                $req = $this->conn()->prepare("SELECT `password`, `Email`, `name` FROM `admines` WHERE password=? and Email=? and name=?; ");
-                $req->execute([$this -> password ,$this -> Email ,$this-> name]);
+                $req = $this->conn()->prepare("SELECT `password` FROM `admines` WHERE name=? or Email=?;");
+                $req->execute([$this -> Email ,$this -> Email]);
           
               
                 if($req->rowCount() == 0){
@@ -196,22 +196,53 @@ class Connection{
                     exit();
                 }
                 $passhashed = $req->fetchAll();
+            //  
+            //  
                 $checkedpass =password_verify($this->password,$passhashed[0]["password"]);
+                       $Admin = $req->fetchAll();
+       $_SESSION['adminName']=$Admin[0]['name'];
 
-               if($checkedpass==false){
-                $req=null;
-                header( "location :index.php?Wrongpassword");
-                exit();
 
-               }elseif($checkedpass==true){
-                header( "location :dashbord.php");
-              exit();
 
+
+
+
+                // var_dump($checkedpass);
+                // die();
+// 
+            //    if($checkedpass == false){
+// 
+            // $req=null;
+                // header( "location :index.php?Wrongpassword");
+                // exit();
 
                }
+            // elseif($checkedpass==true){
+                // $req = $this->conn()->prepare("SELECT* FROM `admines` WHERE name=? 
+            // or Email=? AND password=?;");
+// 
+            // $req->execute([$this -> Email ,$this ->
+            // Email, $this -> password ]);
+            //   
+            // if($req->rowCount() == 0){
+                // $req =0;
+                // header( "location :index.php");
+                // exit();
+// 
+            //   
+            //   
+// 
+// 
+            //    }
+// 
+            //    $Admin = $req->fetchAll();
+            //    $_SESSION['adminName']=$Admin[0]['name'];
+
+               
             }
 
-        }
+        // }
+    // }
 
 
 
