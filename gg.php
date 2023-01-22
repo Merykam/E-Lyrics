@@ -27,6 +27,13 @@ if(isset($_POST["login"])){
     
 }
 
+if(isset($_POST["logout"])){
+ 
+    session_destroy();
+
+    header("location: index.php");
+}
+
 
 
 

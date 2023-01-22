@@ -144,6 +144,8 @@ class Connection{
         }
 
 
+       
+
 
         }
 
@@ -153,9 +155,10 @@ class Connection{
         class LogIn extends Connection{
             private $password;
             private $Email;
-            private $name;
+         
             public function Login(){
                 if($this->EmptyInputs()==false){
+                    
                     header("location:index.php?error=empyinput");
                     exit();
                 }
@@ -186,21 +189,24 @@ class Connection{
     
             }
             public function getAdmin(){
-                $req = $this->conn()->prepare("SELECT `password` FROM `admines` WHERE name=? or Email=?;");
-                $req->execute([$this -> Email ,$this -> Email]);
+                $req = $this->conn()->prepare("SELECT * FROM `admines` WHERE  Email=?;");
+                $req->execute([$this -> Email]);
           
               
                 if($req->rowCount() == 0){
                     $req =0;
-                    header( "location :index.php");
+                    header( "location: index.php?error=NoEmailFound");
                     exit();
                 }
                 $passhashed = $req->fetchAll();
             //  
             //  
                 $checkedpass =password_verify($this->password,$passhashed[0]["password"]);
-                       $Admin = $req->fetchAll();
-       $_SESSION['adminName']=$Admin[0]['name'];
+
+
+
+    //                   
+    //    $_SESSION['adminName']=$Admin[0]['name'];
 
 
 
@@ -209,44 +215,36 @@ class Connection{
 
                 // var_dump($checkedpass);
                 // die();
-// 
-            //    if($checkedpass == false){
-// 
+
+               if($checkedpass == false){
+
             // $req=null;
-                // header( "location :index.php?Wrongpassword");
-                // exit();
+                header("location: index.php?error=WrongPassword");
+                exit();
 
                }
-            // elseif($checkedpass==true){
-                // $req = $this->conn()->prepare("SELECT* FROM `admines` WHERE name=? 
-            // or Email=? AND password=?;");
-// 
-            // $req->execute([$this -> Email ,$this ->
-            // Email, $this -> password ]);
-            //   
-            // if($req->rowCount() == 0){
-                // $req =0;
-                // header( "location :index.php");
-                // exit();
-// 
-            //   
-            //   
-// 
-// 
-            //    }
-// 
+            elseif($checkedpass==true){
+               
+                $_SESSION["name"] = $passhashed[0]['name'];
+               
+                header("location: dashbord.php");
+                exit();
+
+
+
+       
+
             //    $Admin = $req->fetchAll();
             //    $_SESSION['adminName']=$Admin[0]['name'];
 
                
             }
 
-        // }
-    // }
+        }
+    }
 
 
-
-
+    
 
 
 

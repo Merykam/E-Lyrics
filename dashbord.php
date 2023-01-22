@@ -76,17 +76,23 @@ include "Operation.php";
         <span class="input-group-text border-0"><i class="bi bi-search"></i></span>
       </form> -->
       <div class="d-flex flex-center">
-      <i class="bi bi-person-fill mydimensions"></i>
+      <i class="bi bi-person-fill mydimensions text-white"></i>
       <div class="dropdown">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-       <?php if(isset($_SESSION['adminName'])){
-        echo $_SESSION["adminName"];
+       <?php if(isset($_SESSION['name'])){
+        echo $_SESSION["name"] ;
 
        }
+     
         ?> 
+       
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item fw-bold " href="#">Log out</a></li>
+        <form action="gg.php" method="post">
+        <li><button type="submit" name="logout" class="dropdown-item fw-bold" >Log out</button></li>
+
+        </form>
+       
         
       </ul>
       </div>
@@ -117,7 +123,17 @@ include "Operation.php";
 
  
     <h5 class="card-title">Total des artistes</h5>
-    <h1 class="text-white">0</h1>
+    <h1 class="text-white">
+    <?php
+      $Artist = new statistique();
+
+      echo $Artist->CountArtist();
+
+      
+      
+      ?>
+
+    </h1>
     </div>
     
   </div>
@@ -129,7 +145,16 @@ include "Operation.php";
 
  
     <h5 class="card-title">Total des titres</h5>
-    <h1 class="text-white">0</h1>
+    <h1 class="text-white">
+    <?php
+      $Titles = new statistique();
+
+      echo $Titles->CountTitles();
+
+      
+      
+      ?>
+    </h1>
     </div>
     
   </div>
@@ -141,7 +166,16 @@ include "Operation.php";
 
  
     <h5 class="card-title">Total des admines</h5>
-    <h1 class="text-white">0</h1>
+    <h1 class="text-white">
+      <?php
+      $Admins = new statistique();
+
+      echo $Admins->CountAdmins();
+
+      
+      
+      ?>
+    </h1>
     </div>
     
   </div>
@@ -255,7 +289,8 @@ include "Operation.php";
                       <?php
                       foreach($all_data as $valu){
 
-                        echo '<tr class="odd">
+                        echo '
+                        <tr class="odd">
                         <form action="Operation.php" method="post">
                         
                         <td class="sorting_1">
@@ -311,11 +346,12 @@ include "Operation.php";
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function(){
         $("#data-table").DataTable({
             scrollX: true,
             info: false,
             responsive: true,
+           
         });
     });
 </script>

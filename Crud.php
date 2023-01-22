@@ -140,6 +140,47 @@ class Crud extends Connection{
     
   
 }
+class statistique extends connection{
+
+    public function CountAdmins(){
+        $stm = $this->conn()->prepare("SELECT COUNT(*) as 'countAdmin' FROM `admines`");
+        $stm->execute(); 
+        $s = $stm->fetch();
+        // var_dump($s);
+        
+        return $s['countAdmin'];
+
+    }
+
+
+    public function CountTitles(){
+        $stm = $this->conn()->prepare("SELECT COUNT(*) as 'countTitle' FROM `song-info`");
+        $stm->execute(); 
+        $s = $stm->fetch();
+        // var_dump($s);
+        
+        return $s['countTitle'];
+
+    }
+
+    public function CountArtist(){
+        $stm = $this->conn()->prepare("SELECT COUNT(DISTINCT `Name`) as 'countArtists' FROM `song-info`");
+        $stm->execute(); 
+        $s = $stm->fetch();
+        // var_dump($s);
+        
+        return $s['countArtists'];
+     
+        // var_dump($s);
+        
+        // return $stm->fetch();
+
+    }
+
+
+
+}
+
 
 
 
