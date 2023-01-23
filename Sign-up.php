@@ -34,6 +34,18 @@ include "BackEndRegister.php";
      height: 100vh;
      
     }
+    .login{
+      color: white;
+      text-align: center;
+    }
+    .login a{
+      color: whitesmoke;
+      text-decoration: none;
+      font-weight: bold;
+      
+      
+    }
+
 
 
 
@@ -44,12 +56,22 @@ include "BackEndRegister.php";
         /* box-shadow:  #69B1DD 0px 5px 15px; */
         /* box-shadow: 2px 2px 8px #69B1DD  !important; */
         width: 450px;
-        height: 530px;
+        height: 550px;
        
 
      
           
-    }  
+    } 
+    
+    @media (max-width: 768px) {
+  .card{
+    width: 350px;
+  }
+  
+
+
+}
+
     .btn{
       background-color: white !important;
         color: black;
@@ -95,30 +117,30 @@ include "BackEndRegister.php";
           <div class=" px-4 py-5 px-md-5 ">
             <form method="post">
             <!-- <h1 class="text-center"> <span>E</span>-ly<span>r</span>ics <span>M</span>us<span>i</span>c</h1> -->
-                <h4 class="fw-bold mt-4 text-center">Sign up</h4>
+                <h4 class="fw-bold text-center mb-5">Sign up</h4>
 
 
               <!-- Email input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Name</label>
+              <div class="form-outline mb-3">
+                <!-- <label class="form-label" for="form3Example3">Name</label> -->
                 <input name="Name" placeholder="Enter your name" type="text" id="form3Example3" class="form-control"/>
                 
               </div>
 
               <!-- Password input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example4">Email</label>
+              <div class="form-outline mb-3">
+                <!-- <label class="form-label" for="form3Example4">Email</label> -->
                 <input name="Email" placeholder="Enter your email"  type="email" id="form3Example4" class="form-control" />
                
               </div>
 
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Password</label>
+              <div class="form-outline mb-3">
+                <!-- <label class="form-label" for="form3Example3">Password</label> -->
                 <input name="password" placeholder="Enter your password"  type="password" id="form3Example3" class="form-control" />
                 
               </div>
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Comfirm password</label>
+              <div class="form-outline mb-3">
+                <!-- <label class="form-label" for="form3Example3">Comfirm password</label> -->
                 <input name="Cpassword" placeholder="Comfirm your password"  type="password" id="form3Example3" class="form-control" />
                 
               </div>
@@ -129,12 +151,12 @@ include "BackEndRegister.php";
               <div class=" d-flex justify-content-center">
 
              
-              <button name="submit" type="submit" class="btn btn-block mb-4 ">
+              <button name="submit" type="submit" class="btn btn-block mb-4 mt-4">
                 Sign up
               </button>
               </div>
 
-                </button>
+                <span class="login">Already have an account ? <a href="index.php">Log in</a></span>
               </div> 
             </form>
           </div>

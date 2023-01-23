@@ -23,13 +23,16 @@ include "Operation.php";
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     
   />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dash.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
-  <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"/>
 </head>
 <body>
     <!--Main Navigation-->
@@ -40,13 +43,13 @@ include "Operation.php";
       <div class="list-group list-group-flush mx-3 mt-4">
        
         <a href="#" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Home</span></a
+          ><i class="bi bi-speedometer dash"></i><span class="sp">  Dashbord</span></a
         >
         <a href="#" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Statistique</span></a
+          ><i class="bi bi-clipboard-data dash"></i><span>  Statistique</span></a
         >
         <a href="#data-table" class="fw-bold fs-5 text-decoration-none text-white py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Music lyrics</span></a
+          ><i class="bi bi-music-note dash"></i><span>  Music lyrics</span></a
         >
        
       </div>
@@ -75,10 +78,12 @@ include "Operation.php";
         />
         <span class="input-group-text border-0"><i class="bi bi-search"></i></span>
       </form> -->
-      <div class="d-flex flex-center">
-      <i class="bi bi-person-fill mydimensions text-white"></i>
+      <div class="d-flex flex-center justify-content-center align-items-center">
+    
       <div class="dropdown">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      
+      <button class="btn btn-dark dropdown-toggle bg-white text-dark fw-bold dd" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-person-fill mydimensions text-dark"></i>
        <?php if(isset($_SESSION['name'])){
         echo $_SESSION["name"] ;
 
@@ -113,11 +118,12 @@ include "Operation.php";
 <!--Main Navigation-->
 
 <main class="main1"> 
-<div class="d-flex justify-content-around">
+<!-- <div class="row"> -->
+<div class="d-flex justify-content-around row  gap-3">
 
 
 
-<div class="card " style="width: 18rem;">
+<div class="card col-md-3 col-xs-12 col-sm-12">
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -139,7 +145,9 @@ include "Operation.php";
   </div>
 </div>
 
-<div class="card" style="width: 18rem;">
+
+
+<div class="card col-md-3 col-xs-12 col-sm-12" >
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -160,7 +168,7 @@ include "Operation.php";
   </div>
 </div>
 
-<div class="card" style="width: 18rem;">
+<div class="card col-md-3 col-xs-12 col-sm-12" >
   <div class="card-body d-flex justify-content-center align-items-center">
     <div class="flex-column">
 
@@ -180,6 +188,8 @@ include "Operation.php";
     
   </div>
 </div>
+
+<!-- </div> -->
 </main>
 <main class="tab">
   <!-- Modal -->
@@ -277,7 +287,6 @@ include "Operation.php";
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
-                  
                     <th>Date</th>
                     <th>Lyrics</th>
                     <th>Actions</th>
@@ -288,31 +297,37 @@ include "Operation.php";
                     <!-- <form action="Operation.php" method="post"> -->
                       <?php
                       foreach($all_data as $valu){
+                        ?>
 
-                        echo '
+                  
                         <tr class="odd">
                         <form action="Operation.php" method="post">
-                        
-                        <td class="sorting_1">
-                        <input name="id" type="hidden" value="' . $valu["id"] . '">
-                        <input class="border-0" type="text" name="Title_update" value="' . $valu["Title"]  . '">
-                        </td>
+                        <input name="id" type="hidden" value=" <?php echo $valu["id"] ?>">
                         <td class="">
-                        <input class="border-0" type="text" name="Name_update" value="' . $valu["Name"]. '">
-                        
+                          <input class="border-0" type="text" name="Title_update" value=" <?php echo $valu["Title"] ?>">
+                          <span class="d-none"><?php echo $valu["Title"] ?></span>
+                        </td>
+
+                        <td class="">
+                        <input class="border-0" type="text" name="Name_update" value="<?php echo $valu["Name"] ?>">
+                        <span class="d-none"><?php echo $valu["Name"] ?></span>
                         </td>
                  
                         <td class="">
-                        <input class="border-0" type="text" name="date_update" value="' . $valu["Creation-date"] . '">
+                        <input class="border-0" type="text" name="date_update" value=" <?php echo $valu["Creation-date"] ?>">
+                        <span class="d-none"><?php echo $valu["Creation-date"] ?></span>
+                        
                         
                         
                         </td>
                         <td class="">
-                        <input class="border-0" type="text" name="lyrics_update" value="' . $valu["Lyrics"]. '">
+                        <input class="border-0" type="text" name="lyrics_update" value="<?php echo $valu["Lyrics"] ?>">
+                        <span class="d-none"><?php echo $valu["Lyrics"] ?></span>
+                        
                         </td>
                         <td>
                             <div class="d-flex fs-3">
-                                <a href="?id='. $valu['id'] . '" class="btn btn-warning me-3"><i class="bi bi-trash3-fill users-icon"></i></a>
+                                <a href="?id=<?php echo $valu["id"] ?>" class="btn btn-warning me-3"><i class="bi bi-trash3-fill users-icon"></i></a>
                                 <button name="update" type="submit" class="btn btn-danger text-dark"><i class="bi bi-pencil-square users-icon"></i></button>
                                 
                                 
@@ -321,18 +336,20 @@ include "Operation.php";
                         
                         </form>
                         </tr>
-                        ';
+                        
 
 
 
-
-                      }
+                        <?php
+                         }
+                        ?>
+                     
                  
                       
                       
                       
                       
-                      ?>
+                    
                     
                    
 
@@ -351,6 +368,7 @@ include "Operation.php";
             scrollX: true,
             info: false,
             responsive: true,
+          
            
         });
     });

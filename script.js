@@ -1,3 +1,6 @@
+
+
+
 var Add=document.getElementsByClassName('Add')[0];
 const modal_body = document.querySelector('.modal-body');
 const another_modal_body = document.querySelector('.another-modal-body');
@@ -13,3 +16,6 @@ function Addinputs(){
 
    
 }
+
+
+

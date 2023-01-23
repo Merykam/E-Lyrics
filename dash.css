@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&display=swap');
+
+
 body {
     background-color: #fbfbfb;
   }
@@ -29,6 +32,7 @@ body {
     .sidebar {
       width: 100%;
     }
+   
   }
   .sidebar .active {
     border-radius: 5px;
@@ -44,21 +48,34 @@ body {
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
   .text-center{
-    font-family: 'Luckiest Guy', cursive;
+    /* font-family: 'Luckiest Guy', cursive; */
     font-weight: bold;
     /* color: black  !important; */
     color:#0e6084 ;
-    font-size: 1.8rem;
+    font-size: 3rem;
     text-shadow: #0e6084 2px 2px !important;
-    animation: pulse !important;
+    font-family: 'Lobster', cursive;
+    /* animation: pulse !important;
     animation-duration: 1s !important;
-    animation-iteration-count: infinite !important;
+    animation-iteration-count: infinite !important; */
   
 
 
 }
+
+@media (max-width: 768px) {
+  .text-center{
+    font-size: 2rem !important;
+  }
+  .dd{
+    width: 100px !important ;
+  }
+
+
+}
+
 .text-center span{
-    color: #4f8298  !important ;
+    color: #98b5c1  !important ;
 }
 
 .main1{
@@ -70,13 +87,19 @@ body {
 .card{
     height: 150px;
     border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
     background-image:linear-gradient(to right, black, #325566);
+    /* min-width: 300px; */
+    /* width: 300px; */
+    /* margin-left: 6px; */
+    
+  
    
     
     /* background-color: black; */
 }
 .card-body{
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+ 
   /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px; */
   border-radius: 1rem;
   
@@ -148,4 +171,32 @@ h1{
 }
 .back{
   color: aquamarine !important;
+}
+
+.dd{
+  
+
+  height: 45px;
+  background-color: white !important;
+  color: black !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;   
+}
+.dash{
+  font-size: 3.5rem;
+}
+/* .dash .sp{
+  font-size: 1rem !important;
+  margin-left: 8px !important;
+} */
+
+  .dropdown-menu{
+  background-image:linear-gradient(to right, #6895ac, #95a8b1);
+ 
+}
+.dropdown-item{
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
 }

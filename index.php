@@ -41,19 +41,28 @@ include "gg.php";
         /* box-shadow:  #69B1DD 0px 5px 15px; */
         /* box-shadow: 2px 2px 8px #69B1DD  !important; */
         width: 450px;
-        height: 350px;
+        height: 400px;
        
 
      
           
-    }  
+    } 
+    @media (max-width: 768px) {
+  .card{
+    width: 350px;
+  }
+  
+
+
+}
     .btn{
         background-color: white !important;
         color: black;
         font-size: 17px;
         font-weight: bold;
         border-radius: 1rem;
-        padding: 10px !important;
+        /* padding: 10px !important; */
+        
         /* box-shadow: black  2px 2px !important ; */
     }
     .form-label{
@@ -75,6 +84,18 @@ include "gg.php";
     .text-center span{
         color: #1C82AD !important ;
     }
+    .login{
+      color: white;
+      text-align: center;
+    }
+    .login a{
+      color: whitesmoke;
+      text-decoration: none;
+      font-weight: bold;
+      
+      
+    }
+
 
   </style>
 
@@ -113,11 +134,20 @@ include "gg.php";
               <!-- Submit button -->
               <div class=" d-flex justify-content-center">
 
+              <div class="d-flex flex-column">
+
+             
              
               <button name="login" type="submit" class="btn btn-block mb-4 ">
                 Sign in
               </button>
+
+              <span class="login">Don't have account ? <a href="Sign-up.php">Register here</a></span>
+
               </div>
+             
+              </div>
+             
 
                 </button>
               </div> 
