@@ -108,7 +108,7 @@ include "gg.php";
       <div class=" mb-lg-0 ">
       
 
-        <div class="card d-flex justify-content-center   ">
+        <div class="card d-flex justify-content-center">
           <div class=" px-4 py-5 px-md-5 ">
             <form method="post">
             <!-- <h1 class="text-center"> <span>E</span>-ly<span>r</span>ics <span>M</span>us<span>i</span>c</h1> -->
@@ -118,14 +118,16 @@ include "gg.php";
               <!-- Email input -->
               <div class="form-outline mb-4 mt-5">
                 <!-- <label class="form-label" for="form3Example3">Email address</label> -->
-                <input name="Email" placeholder="Enter your name" type="email" id="form3Example3" class="form-control" />
+                <input id="email" name="Email" placeholder="Enter your name" type="email" id="form3Example3" class="form-control" />
+                <div  class="text-danger"  id="errorEmail"></div>
                 
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <!-- <label class="form-label" for="form3Example4">Password</label> -->
-                <input name="password" placeholder="Enter your Password"  type="password" id="form3Example4" class="form-control" />
+                <input id="password" name="password" placeholder="Enter your Password"  type="password" id="form3Example4" class="form-control" />
+                <div  class="text-danger"  id="errorPassword"></div>
                
               </div>
 
@@ -138,7 +140,7 @@ include "gg.php";
 
              
              
-              <button name="login" type="submit" class="btn btn-block mb-4 ">
+              <button id="Btn" name="login" type="button" class="btn btn-block mb-4 ">
                 Sign in
               </button>
 
@@ -164,7 +166,7 @@ include "gg.php";
 
 
 
-
+<script src="logValidation.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

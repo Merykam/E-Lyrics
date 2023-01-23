@@ -123,27 +123,32 @@ include "BackEndRegister.php";
               <!-- Email input -->
               <div class="form-outline mb-3">
                 <!-- <label class="form-label" for="form3Example3">Name</label> -->
-                <input name="Name" placeholder="Enter your name" type="text" id="form3Example3" class="form-control"/>
-                
+                <input id="name" name="Name" placeholder="Enter your name" type="text" id="form3Example3" class="form-control"/>
+                <div class="text-danger" id="errorName"></div>
               </div>
+              
 
               <!-- Password input -->
               <div class="form-outline mb-3">
                 <!-- <label class="form-label" for="form3Example4">Email</label> -->
-                <input name="Email" placeholder="Enter your email"  type="email" id="form3Example4" class="form-control" />
-               
+                <input id="email"  name="Email" placeholder="Enter your email"  type="email" id="form3Example4" class="form-control" />
+                <div  class="text-danger"  id="errorEmail"></div>
               </div>
+              
 
               <div class="form-outline mb-3">
                 <!-- <label class="form-label" for="form3Example3">Password</label> -->
-                <input name="password" placeholder="Enter your password"  type="password" id="form3Example3" class="form-control" />
-                
+                <input id="password"  name="password" placeholder="Enter your password"  type="password" id="form3Example3" class="form-control" />
+                <div  class="text-danger"  id="errorPassword"></div>
               </div>
+              
               <div class="form-outline mb-3">
                 <!-- <label class="form-label" for="form3Example3">Comfirm password</label> -->
-                <input name="Cpassword" placeholder="Comfirm your password"  type="password" id="form3Example3" class="form-control" />
+                <input id="Cpassword" name="Cpassword" placeholder="Comfirm your password"  type="password" id="form3Example3" class="form-control" />
+                <div  class="text-danger"  id="errorCpass"></div>
                 
               </div>
+             
 
 
 
@@ -151,7 +156,7 @@ include "BackEndRegister.php";
               <div class=" d-flex justify-content-center">
 
              
-              <button name="submit" type="submit" class="btn btn-block mb-4 mt-4">
+              <button id="Btn" name="submit" type="button" class="btn btn-block mb-4 mt-4">
                 Sign up
               </button>
               </div>
@@ -166,6 +171,8 @@ include "BackEndRegister.php";
   </div>
 </section>
 <!-- Section: Design Block -->
+
+<script src="signValidation.js"></script>
 
 
 

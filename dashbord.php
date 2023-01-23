@@ -212,22 +212,26 @@ include "Operation.php";
               <div class="row">
 							<div class="mb-3 col">
 								<label class="form-label">Song title</label>
-								<input type="text" class="form-control"  name="Title[]" />
+								<input id="title"  type="text" class="form-control"  name="Title[]" />
+                <div  class="text-danger"  id="errortitle"></div>
 							</div>
               <div class="mb-3 col">
 								<label class="form-label">Singer name</label>
-								<input type="text" class="form-control" id="task-title" name="Name[]"/>
+								<input id="name" type="text" class="form-control" id="task-title" name="Name[]"/>
+                <div  class="text-danger"  id="errorName"></div>
 							</div>
               <div class="mb-3 col">
 								<label class="form-label">Creation date</label>
-								<input type="date" class="form-control" id="task-date" name="date[]"/>
+								<input id="date" type="date" class="form-control" id="task-date" name="date[]"/>
+                <div  class="text-danger"  id="errordate"></div>
 							</div>
               </div>
 			
 						
               <div class="mb-0">
 								<label class="form-label">Lyrics</label>
-								<textarea class="form-control" rows="5" id="task-description" name="Lyrics[]"></textarea>
+								<textarea id="lyrics" class="form-control" rows="5" id="task-description" name="Lyrics[]"></textarea>
+                <div  class="text-danger"  id="errorlyrics"></div>
 							</div>
 						
 						
@@ -239,7 +243,7 @@ include "Operation.php";
           <button type="button" class="Add">Add more</button>
 						<a href="#" class="btn btn-white" data-bs-dismiss="modal">Cancel</a>
 	
-						<button type="submit" name="Add_lyrics" class="btn btn-dark task-action-btn" id="task-save-btn">Save</button>
+						<button id="Btn" type="button" name="Add_lyrics" class="btn btn-dark task-action-btn" id="task-save-btn">Save</button>
            
 					</div>
 				</form>
